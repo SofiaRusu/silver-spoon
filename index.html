@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentic Italian Gelato</title>
+
+    <!-- Italian-style Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background: #FAF3E0;
+            color: #5A4634;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            background: #8B1E3F;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: #FAF3E0;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #C9A66B;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #8B1E3F, #C9A66B);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        header h2 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: #FAF3E0;
+        }
+
+        header p {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-size: 1.1em;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* INFO BOXES */
+        .info-grid {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .info-box {
+            background: #556B2F;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 30%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            background: #6B8F3F;
+        }
+
+        .info-box h3 {
+            font-size: 1em;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        /* IMAGE + INGREDIENTS SIDE BY SIDE */
+        .flex-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .recipe-image {
+            flex: 1;
+            height: 320px;
+            border-radius: 10px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-color: #fff;
+            background-position: center;
+            background-image: url('images/Screenshot 2026-09-26 181252.png');
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .ingredients {
+            flex: 1;
+        }
+
+        h2 {
+            color: #8B1E3F;
+            font-size: 1.9em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #C9A66B;
+            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .ingredient-item {
+            background: #FAF3E0;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid #8B1E3F;
+            border-radius: 6px;
+            font-size: 1.1em;
+        }
+
+        /* INSTRUCTIONS */
+        .instructions {
+            background: #FFF9F0;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .instructions li {
+            margin-bottom: 15px;
+            font-size: 1.15em;
+            padding: 12px;
+            background: white;
+            border-left: 5px solid #C9A66B;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .instructions li:hover {
+            background: #FAF3E0;
+        }
+
+        /* TIPS SECTION */
+        .tips {
+            margin-top: 40px;
+            background: #FAF3E0;
+            padding: 25px;
+            border-left: 6px solid #556B2F;
+            border-radius: 10px;
+        }
+
+        .tips ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        /* EXTRA WRITING */
+        .extra-writing {
+            margin-top: 40px;
+            background: #FFF9F0;
+            padding: 25px;
+            border-left: 6px solid #8B1E3F;
+            border-radius: 10px;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        /* MAP + CLIPBOARD LAYOUT */
+        .map-clipboard {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* MAP SECTION */
+        .map-section {
+            flex: 1;
+            background: #FAF3E0;
+            padding: 25px;
+            border-left: 6px solid #556B2F;
+            border-radius: 10px;
+        }
+
+        /* CLIPBOARD SECTION */
+        .clipboard {
+            flex: 1;
+            background: #FFF9E6;
+            padding: 25px;
+            border-left: 6px solid #C9A66B;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .clipboard::before {
+            content: "";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 25px;
+            background: #8B1E3F;
+            border-radius: 6px;
+        }
+
+        .sticky-note {
+            width: 120px;
+            height: 120px;
+            background: #FFF8A6;
+            border: 1px solid #E0D98C;
+            border-radius: 6px;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transform: rotate(-3deg);
+        }
+
+        .sticky-note img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #8B1E3F;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 800px) {
+            .flex-section {
+                flex-direction: column;
+            }
+
+            .info-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .info-box {
+                width: 100%;
+            }
+
+            .map-clipboard {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">🍨 Sofia’s Italian Kitchen</div>
+    <div>
+        <a href="#">Home</a>
+        <a href="#">Desserts</a>
+        <a href="#">About</a>
+    </div>
+</nav>
+
+<header>
+    <h1>Homemade Gelato</h1>
+    <h2>A Traditional Italian Dessert Made Simple</h2>
+    <p>
+        This recipe follows through the significant, while simple steps to achieve the perfect gelato, 
+     originating from the traditional Italian methods of Mokambo Gelateria. Whether you wish to create a wonderful gelato as a 
+        special treat for yourself, or as a performance to demonstrate an elaborate dessert, despite the 
+        lack of much effort, to family and friends. Otherwise, relax and enjoy as you read through a 
+        historically accurate representation of this beloved Italian dessert.
+    </p>
+</header>
+
+<div class="container">
+
+    <div class="info-grid">
+        <div class="info-box">
+            <h3>Prep Time</h3>
+            <p>15 min</p>
+        </div>
+        <div class="info-box">
+            <h3>Cook Time</h3>
+            <p>20 min</p>
+        </div>
+        <div class="info-box">
+            <h3>Serves</h3>
+            <p>4–6</p>
+        </div>
+    </div>
+
+    <div class="flex-section">
+        <div class="recipe-image"></div>
+
+        <div class="ingredients">
+            <h2>Ingredients</h2>
+            <div class="ingredient-item">2 cups whole milk</div>
+            <div class="ingredient-item">1 cup heavy cream</div>
+            <div class="ingredient-item">3/4 cup sugar</div>
+            <div class="ingredient-item">5 egg yolks</div>
+            <div class="ingredient-item">1 tablespoon vanilla extract</div>
+        </div>
+    </div>
+
+    <section class="instructions">
+        <h2>Instructions</h2>
+        <ol>
+            <li>Heat milk and cream in a saucepan until steaming</li>
+            <li>Whisk egg yolks with sugar until pale</li>
+            <li>Slowly add hot milk to eggs while whisking</li>
+            <li>Return mixture to saucepan and cook until thickened</li>
+            <li>Strain and chill for at least 2 hours</li>
+            <li>Churn in ice cream maker following manufacturer instructions</li>
+            <li>Freeze for 4 hours before serving</li>
+        </ol>
+    </section>
+
+    <section class="tips">
+        <h2>Tips & Variations</h2>
+        <ul>
+            <li>Add crushed pistachios for a Sicilian twist.</li>
+            <li>Infuse the milk with lemon zest for a refreshing flavour.</li>
+            <li>Use real vanilla bean for a deeper aroma.</li>
+            <li>For chocolate gelato, add ½ cup melted dark chocolate.</li>
+        </ul>
+    </section>
+
+    <!-- ⭐ NEW WRITING SECTION -->
+    <section class="extra-writing">
+        <h2>About This Gelateria</h2>
+        <p>
+            Mokambo Gelateria is a traditional Italian ice cream shop located in Ruvo di Puglia. 
+            Their recipe dates back over 180 years, passed down through generations of skilled gelato makers. 
+            This gelateria is known for its authentic flavours, artisanal methods, and warm hospitality — 
+            making it a beloved destination for locals and visitors alike.
+        </p>
+    </section>
+
+    <!-- ⭐ MAP + CLIPBOARD -->
+    <div class="map-clipboard">
+
+        <!-- MAP -->
+        <section class="map-section">
+            <h2>Location of Mokambo Gelateria</h2>
+
+            <iframe 
+                width="100%" 
+                height="350" 
+                frameborder="0" 
+                style="border:0; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" 
+                src="https://www.bing.com/maps/embed?h=350&w=500&cp=41.1137~16.4877&lvl=16&typ=d&sty=r&src=SHELL&FORM=MBEDV8">
+            </iframe>
+
+            <p style="margin-top: 10px;">
+                <a href="https://www.bing.com/maps?q=Mokambo+Gelateria" target="_blank" style="color:#8B1E3F; font-weight:600;">
+                    Open full map
+                </a>
+            </p>
+        </section>
+
+        <!-- CLIPBOARD -->
+<section class="clipboard">
+    <h2 style="margin-bottom: 15px;">Gelateria Highlights!</h2>
+
+    <!-- ⭐ BIG FEATURE STICKY NOTE -->
+    <div class="sticky-note big-note">
+        <img src="./images/ice cream - sticker 1.png" alt="Featured Gelato Photo">
+    </div>
+
+    <!-- Regular sticky notes -->
+    <div class="sticky-note">
+        <img src="./images/entrance - sticker 2.png" alt="Gelato Photo">
+    </div>
+
+    <div class="sticky-note">
+        <img src="./images/woman - sticker 3.png" alt="Gelato Photo">
+    </div>
+
+    <div class="sticky-note">
+        <img src="./images/woman 2 - sticker 4.png" alt="Gelateria">
+    </div>
+</section>
+
+            <!-- You can add more sticky notes anytime -->
+        </section>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Sofia’s Gelato Recipe | Buon Appetito! 🍨</p>
+</footer>
+
+</body>
+</html>
